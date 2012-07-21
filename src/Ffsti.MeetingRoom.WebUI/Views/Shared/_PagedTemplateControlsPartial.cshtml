@@ -1,0 +1,30 @@
+﻿@using Resources
+<div>
+    @if (Model.HasPreviousPage)
+    {
+        @Html.ActionLink(@Resource.FirstPage, "Index", 1, (string)ViewBag.CurrentSort, (string)ViewBag.CurrentFilter)
+        @Html.Raw(" ");
+        @Html.ActionLink(@Resource.PreviousPage, "Index", (int)Model.PageNumber - 1, (string)ViewBag.CurrentSort, (string)ViewBag.CurrentFilter)
+    }
+    else
+    {
+        @Resource.FirstPage
+        @Html.Raw(" ");
+        @Resource.PreviousPage
+    }
+    @Html.Raw("  -  ")
+    @Resource.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    @Resource.PageOf @Model.PageCount @Html.Raw("  -  ")
+    @if (Model.HasNextPage)
+    {
+        @Html.ActionLink(@Resource.NextPage, "Index", (int)Model.PageNumber + 1, (string)ViewBag.CurrentSort, (string)ViewBag.CurrentFilter)
+        @Html.Raw(" ");
+        @Html.ActionLink(@Resource.LastPage, "Index", (int)Model.PageCount, (string)ViewBag.CurrentSort, (string)ViewBag.CurrentFilter)
+    }
+    else
+    {
+        @Resource.NextPage
+        @Html.Raw(" ")
+        @Resource.LastPage
+    }
+</div>
