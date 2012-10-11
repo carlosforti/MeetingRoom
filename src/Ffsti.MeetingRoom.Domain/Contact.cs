@@ -11,6 +11,7 @@ namespace Ffsti.MeetingRoom.Domain
         [Required(ErrorMessage = "O campo é obrigatório")]
         [Display(Name = "Tipo de contato")]
         public int ContactTypeId { get; set; }
+
         public virtual ContactType ContactType { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
@@ -19,7 +20,7 @@ namespace Ffsti.MeetingRoom.Domain
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
-        [StringLength(100, ErrorMessage = "O campo deve ter entre {1} e {2} caracteres", MinimumLength = 3)]
+        [StringLength(100, ErrorMessage = "O campo deve ter entre {2} e {1} caracteres", MinimumLength = 3)]
         [Display(Name = "Sobrenome")]
         public string LastName { get; set; }
 
@@ -50,5 +51,10 @@ namespace Ffsti.MeetingRoom.Domain
         public string Site { get; set; }
 
         public virtual ICollection<Meeting> Reservations { get; set; }
+
+        public virtual string FullName
+        {
+            get { return FirstName + " " + LastName; }
+        }
     }
 }

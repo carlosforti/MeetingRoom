@@ -1,0 +1,57 @@
+﻿@model Ffsti.MeetingRoom.Domain.Meeting
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Meeting</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ContactId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ContactId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RoomId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RoomId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Start)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Start)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Finish)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Finish)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Participants)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Participants)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Subject)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Subject)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -9,7 +9,7 @@ using Ffsti.MeetingRoom.Data.Interfaces;
 namespace Ffsti.MeetingRoom.Data
 {
     public class GenericRepository<C, T> : IGenericRepository<T>, IDisposable
-        where T : class
+        where T : class, new()
         where C : DbContext, new()
     {
         private C entities = new C();
@@ -20,7 +20,7 @@ namespace Ffsti.MeetingRoom.Data
             set { entities = value; }
         }
 
-        public IQueryable<T> ListAll()
+        public virtual IQueryable<T> ListAll()
         {
             return this.entities.Set<T>().AsQueryable<T>();
         }

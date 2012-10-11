@@ -25,25 +25,12 @@ namespace Ffsti.MeetingRoom.Service
         public ContactTypeService(ModelStateDictionary modelState) :
             base(new ModelStateWrapper(modelState), new ContactTypeRepository()) { }
 
-        protected override bool ValidateData(ContactType entity)
+        public override bool IsValid(ContactType entity)
         {
             var contactType = this.Search(c => c.Name == entity.Name).FirstOrDefault();
             if (contactType != null)
                 this.modelState.AddError("Name", "O nome do tipo de contato já está sendo usado");
 
-            return this.modelState.IsValid();
-        }
-
-        public override bool Add(ContactType entity)
-        {
-            if (!ValidateData(entity))
-                return false;
-
-            return base.Add(entity);
-        }
-
-        public override bool IsValid()
-        {
             return this.modelState.IsValid();
         }
     }

@@ -49,7 +49,7 @@ namespace Ffsti.MeetingRoom.WebUI
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
-            BundleTable.Bundles.RegisterTemplateBundles();
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         protected void Application_AcquireRequestState(object sender, EventArgs e)

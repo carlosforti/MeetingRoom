@@ -31,8 +31,7 @@ namespace Ffsti.MeetingRoom.WebUI.Controllers
         [HttpPost()]
         public virtual ActionResult Create(T entity)
         {
-            Service.Add(entity);
-            if (ModelState.IsValid)
+            if (Service.Add(entity))
                 return RedirectToAction("Index");
             return View(entity);
         }
@@ -53,15 +52,16 @@ namespace Ffsti.MeetingRoom.WebUI.Controllers
 
         [ActionName("Delete")]
         [HttpPost()]
-        public virtual ActionResult DeleteConfirmed(T entity)
+        public virtual ActionResult DeleteConfirmed(int id)
         {
-            if (Service.Delete(entity))
+            if (Service.Delete(id))
             {
                 return RedirectToAction("Index");
             }
 
             ViewBag.ErrorMessage = "Não foi possível excluir este registro. Por favor, verifique.";
-            return View(entity);
+
+            return RedirectToAction("Delete", new { id = id });
         }
 
         public abstract ActionResult Edit(int id = 0);

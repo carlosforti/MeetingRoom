@@ -9,7 +9,7 @@ namespace Ffsti.MeetingRoom.Domain
         public int Id { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
-        [StringLength(100, ErrorMessage = "O campo deve ter entre {1} e {2} caracteres", MinimumLength = 3)]
+        [StringLength(100, ErrorMessage = "O campo deve ter entre {2} e {1} caracteres", MinimumLength = 3)]
         [Display(Name = "Nome")]
         public string Name { get; set; }
 

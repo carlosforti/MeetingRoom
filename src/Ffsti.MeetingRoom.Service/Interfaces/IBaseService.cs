@@ -13,6 +13,6 @@ namespace Ffsti.MeetingRoom.Service.Interfaces
         bool Edit(T entity);
         bool Delete(int id);
         bool Delete(T entity);
-        bool IsValid();
+        bool IsValid(T entity);
     }
 }

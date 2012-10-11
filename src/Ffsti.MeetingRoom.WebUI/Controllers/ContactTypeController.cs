@@ -10,26 +10,33 @@ using Ffsti.MeetingRoom.Service.Wrappers;
 
 namespace Ffsti.MeetingRoom.WebUI.Controllers
 {
-    public class ContactTypeController : Controller
+    public class ContactTypeController : BaseController<ContactType, ContactTypeService>
     {
-        private IContactTypeService service;
-
-        public ContactTypeController()
+        public override ActionResult Edit(int id = 0)
         {
-            service = new ContactTypeService(this.ModelState);
+            var contactType = Service.Find(id);
+            if (contactType != null)
+                return View(contactType);
+
+            return HttpNotFound();
         }
 
-        public ActionResult Index()
+        public override ActionResult Details(int id = 0)
         {
-            return View(service.ListAll());
+            var contactType = Service.Find(id);
+            if (contactType != null)
+                return View(contactType);
+
+            return HttpNotFound();
         }
 
-        public ActionResult Create()
+        public override ActionResult Delete(int id = 0)
         {
-            return View();
-        }
+            var contactType = Service.Find(id);
+            if (contactType != null)
+                return View(contactType);
 
-        [HttpPost]
-        public ActionResult
+            return HttpNotFound();
+        }
     }
 }

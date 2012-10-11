@@ -1,0 +1,59 @@
+﻿@model Ffsti.MeetingRoom.Domain.Room
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Room</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Capacity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Capacity)
+            @Html.ValidationMessageFor(model => model.Capacity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HasProjector)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HasProjector)
+            @Html.ValidationMessageFor(model => model.HasProjector)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Color)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Color)
+            @Html.ValidationMessageFor(model => model.Color)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

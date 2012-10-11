@@ -49,9 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="ContactService.cs" />
     <Compile Include="ContactTypeService.cs" />
     <Compile Include="Interfaces\IBaseService.cs" />
+    <Compile Include="Interfaces\IContactService.cs" />
     <Compile Include="Interfaces\IContactTypeService.cs" />
+    <Compile Include="Interfaces\IMeetingService.cs" />
+    <Compile Include="Interfaces\IRoomService.cs" />
+    <Compile Include="MeetingService.cs" />
+    <Compile Include="RoomService.cs" />
     <Compile Include="Validation\IValidationDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wrappers\ModelStateWrapper.cs" />

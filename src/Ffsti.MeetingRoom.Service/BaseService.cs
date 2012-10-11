@@ -38,8 +38,13 @@ namespace Ffsti.MeetingRoom.Service
 
         public virtual bool Add(T entity)
         {
-            this.repository.Add(entity);
-            return this.repository.Save();
+            if (this.IsValid(entity))
+            {
+                this.repository.Add(entity);
+                return this.repository.Save();
+            }
+
+            return false;
         }
 
         public virtual bool Edit(T entity)
@@ -60,7 +65,7 @@ namespace Ffsti.MeetingRoom.Service
             return this.repository.Save();
         }
 
-        public virtual bool IsValid()
+        public virtual bool IsValid(T entity)
         {
             return true;
         }
@@ -69,7 +74,5 @@ namespace Ffsti.MeetingRoom.Service
         {
             this.repository.Dispose();
         }
-
-        protected abstract bool ValidateData(T entity);
     }
 }

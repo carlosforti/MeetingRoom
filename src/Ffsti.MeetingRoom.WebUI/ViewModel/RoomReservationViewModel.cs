@@ -3,9 +3,9 @@ using Ffsti.MeetingRoom.Domain;
 
 namespace Ffsti.MeetingRoom.WebUI.ViewModel
 {
-    public class ReservaSalaViewModel
+    public class RoomMeetingViewModel
     {
         public IEnumerable<Room> Rooms { get; set; }
-        public IEnumerable<Meeting> Reservations { get; set; }
+        public IEnumerable<Meeting> Meetings { get; set; }
     }
 }

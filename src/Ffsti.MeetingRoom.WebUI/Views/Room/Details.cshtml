@@ -1,0 +1,43 @@
+﻿@model Ffsti.MeetingRoom.Domain.Room
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Room</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Capacity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Capacity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HasProjector)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HasProjector)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Color)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Color)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
